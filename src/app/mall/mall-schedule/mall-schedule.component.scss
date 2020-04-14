@@ -1,0 +1,22 @@
+.mall-schedule-table-container{
+  height: 600px;
+  overflow: auto;
+}
+
+table{
+  width: 100%;
+}
+
+.mall-form{
+  width: 40%;
+
+  .day-field{
+    width: 20%;
+    float: left;
+    height: 80px;
+  }
+  .region-field{
+    width: 80%;
+    float: left;
+  }
+}

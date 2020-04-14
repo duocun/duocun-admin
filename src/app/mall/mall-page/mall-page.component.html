@@ -1,0 +1,17 @@
+<!-- <app-mall-form [mall]="mall"></app-mall-form>
+<app-mall-list [malls]="malls" (afterSelect)="onAfterSelect($event)"></app-mall-list> -->
+
+<mat-tab-group mat-align-tabs="left">
+    <mat-tab i18n-label label="Schedule">
+      <app-mall-schedule></app-mall-schedule>
+    </mat-tab>
+    <mat-tab label="Region Group">
+      <app-region-group></app-region-group>
+    </mat-tab>
+    <mat-tab label="Area Config">
+      <app-area-config></app-area-config>
+    </mat-tab>
+    <!-- <mat-tab i18n-label label="Schedule">
+      <app-merchant-schedule></app-merchant-schedule>
+    </mat-tab> -->
+  </mat-tab-group>

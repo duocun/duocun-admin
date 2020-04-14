@@ -1,0 +1,27 @@
+
+<!-- <div *ngFor="let pic of pictures">
+  <div class="row" style="padding:10px;">
+    <div class="col-8">{{pic}}</div>
+    <div class="col-4">
+      <img src="{{mediaUrl + pic}}" style="width:80px; height:60px;">
+    </div>
+  </div>
+</div>
+ -->
+<div class="page-content">
+<!-- <form [formGroup]="form" class="upload-form">
+  <div class="row">
+      <div class="label-sm" i18n="@@Name">Name:</div>
+      <input name="name" formControlName="name"/>
+  </div> -->
+
+  <div>{{pictureName}}</div>
+  <div class="row image-uploader">
+    <app-image-uploader [size]="'sm'" [urls]="urls"
+      [uploadUrl]="uploadUrl" (afterUpload)="onAfterPictureUpload($event)">
+    </app-image-uploader>
+  </div>
+
+  <!-- <button class="btn btn-primary" (click)="save()" i18n="@@Save">Save</button> -->
+<!-- </form> -->
+</div>

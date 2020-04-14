@@ -1,0 +1,92 @@
+.order{
+  border-bottom: solid 1px #eee;
+  padding: 10px;
+
+  .row{
+    margin: 0px;
+  }
+
+  .note-row, .order-id-row, .client-row{
+    font-size: 12px;
+    .col-3{
+      padding: 0px;
+    }
+    .col-9{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  .product-block{
+    padding-top: 10px;
+    .product-col{
+      padding-left: 0px;
+    }
+  }
+}
+
+.no-orders{
+  padding-top: 200px;
+  text-align: center;
+}
+
+.detail-block, .total-block{
+  font-size: 14px;
+  .col-9{
+    padding-left: 0px;
+  }
+}
+
+.total-block{
+  width: 100%;
+}
+
+
+$cellphone: "(max-width:480px)";
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+.order-table{
+  width: 50%;
+  float: left;
+  // padding: 15px;
+  min-height: 400px;
+  max-height: 400px;
+  overflow: auto !important;
+
+  table{
+    width: 100%;
+
+    .highlighted{
+      background-color: #eee
+    }
+  }
+}
+
+.order-form{
+  width: 50%;
+  float: left;
+  padding: 0px 15px;
+
+  mat-card{
+    margin: 15px 0px;
+  }
+
+  .order-detail{
+    padding: 15px 0px;
+    font-weight: 300;
+    span{
+      font-weight: 500;
+    }
+  }
+}
+
+@media #{$mobile}{
+  .order-table{
+    width: 100%;
+  }
+  .order-form{
+    width: 100%;
+  }
+}

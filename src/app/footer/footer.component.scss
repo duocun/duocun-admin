@@ -1,0 +1,49 @@
+
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+footer{
+  height:60px;
+  padding:0px;
+  line-height: 15px;
+  font-size: 12px;
+  background-color: white;
+  border-top: 1px solid #eee;
+
+  .bottom-nav-menus{
+    display: flex;
+    width: 100%;
+    padding: 9px 0px;
+    margin: 0px;
+
+    .menu{
+      width: 14.2%;
+      margin: 0px;
+
+      img, svg{
+        width: 28px;
+        height: 28px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+
+      .icon-text {
+        float: left;
+        width: 100%;
+        margin: 0px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+@media #{$tablet}{
+
+}
+
+@media #{$mobile}{
+  
+}

@@ -1,0 +1,213 @@
+<div *ngIf="orders && orders.length === 0" class="no-orders">No Orders</div>
+
+<div class="left-side">
+  <div class="search-box">
+    <form [formGroup]="searchForm" class="address-input">
+      <input type="text" #search [formControl]="searchForm.controls.keyword" placeholder="查订单号，客户，客户电话，商家或地址"
+        (input)="onValueChange($event)"
+        (focus)="onFocus($event)" />
+    </form>
+  </div>
+  <div class="order-form" *ngIf="orders && orders.length>0">
+    <mat-card *ngIf="selected">
+      <mat-card-header>
+        <mat-card-title>
+          <span i18n="@@Client"> Client</span>:&nbsp;
+          <span>{{selected.client.username}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="order-detail">
+          <div>
+            <span i18n="@@OrderCode">Order Code</span>:&nbsp;{{selected.code}}
+          </div>
+          <div>
+            <span i18n="@@Merchant">Merchant</span>:&nbsp;{{selected.merchant.name}}
+          </div>
+          <div>
+            <span i18n="@@ClientPhoneNumber">Phone Number</span>:&nbsp;{{selected.client.phone}}
+          </div>
+          <div>
+            <span i18n="@@DeliverAddress">Deliver Address</span>:&nbsp;{{selected.address}}
+          </div>
+          <div>
+            <span i18n="@@PaymentMethod">PaymentMethod</span>:&nbsp;{{selected.paymentMethod}}
+          </div>
+          <div>
+            <span i18n="@@Note">Note</span>:&nbsp;{{selected.note}}
+          </div>
+          <div>
+            <span i18n="@@OverRangeCharge">Over Range Charge</span>:&nbsp;${{selected.overRangeCharge | number : '1.2-2'}}
+          </div>
+          <div>
+            <span i18n="@@GroupDiscount">Group Discount</span>:&nbsp;${{selected.groupDiscount | number : '1.2-2'}}
+          </div>
+          <div>
+            <span i18n="@@Total">Total</span>:&nbsp;${{selected.total | number : '1.2-2'}}
+          </div>
+
+          <div>
+            <span i18n="@@Driver">Driver</span>:&nbsp;{{selected.driverName}}
+          </div>
+          <div>
+            <span i18n="@@DriverPhoneNumber">Driver Phone Number</span>:&nbsp;{{selected.driverPhoneNumber}}
+          </div>
+        </div>
+
+        <div class="product-list" *ngIf="selected.items && selected.items.length > 0">
+          <div *ngFor="let item of selected.items" class="row product-row">
+            <div class="col-7">{{item.product.name}}</div>
+            <div class="col-2">x{{item.quantity}}</div>
+            <div class="col-3">${{item.product.price}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!--mat-elevation-z8 -->
+<div class="order-table" *ngIf="dataSource">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@OrderCode"> Code </th>
+      <td mat-cell *matCellDef="let row"> {{row.code}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="merchantName" class="merchant-name-col">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@Merchant"> Merchant </th>
+      <td mat-cell *matCellDef="let row"> {{row.merchantName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clientName" class="client-name-col">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@Client"> Client </th>
+      <td mat-cell *matCellDef="let row"> {{row.clientName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clientPhoneNumber" class="client-phone-col">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@ClientPhoneNumber"> Client Phone Number </th>
+      <td mat-cell *matCellDef="let row"> {{row.clientPhoneNumber}} </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@Address"> Address </th>
+        <td mat-cell *matCellDef="let row"> ${{row.address}} </td>
+      </ng-container> -->
+
+    <ng-container matColumnDef="note" class="note-col">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header i18n="@@Note"> Note </th>
+      <td mat-cell *matCellDef="let row"> {{row.note}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id" class="operation-col">
+      <th mat-header-cell *matHeaderCellDef i18n="@@Operation"> Operation </th>
+      <td mat-cell *matCellDef="let row">
+        <!-- <div class="btn btn-primary" i18n="@@Save" (click)="onSave(row)">Save</div> -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectRow(row)" [class.highlighted]="row === selected"></tr>
+  </table>
+</div>
+<!-- 
+<div class="order-list" *ngIf="orders && orders.length>0">
+  <div class="order" *ngFor="let order of orders">
+    <div class="row order-id-row">
+      <div class="col-3" i18n="@@OrderCode">Code</div>
+      <div class="col-9">{{order.code? order.code : 'N/A'}}</div>
+    </div>
+    <div class="row order-id-row">
+      <div class="col-3" i18n="@@Merchant">Merchant</div>
+      <div class="col-9">{{order.merchantName}}</div>
+    </div>
+    <div class="row client-row">
+      <div class="col-3" i18n="@@Client">Client</div>
+      <div class="col-9">{{order.clientName}}</div>
+    </div>
+    <div class="row client-row">
+      <div class="col-3" i18n="@@ClientPhoneNumber">Client Phone Number</div>
+      <div class="col-9">{{order.clientPhoneNumber}}</div>
+    </div>
+    <div class="row client-row">
+      <div class="col-3" i18n="@@Address">Address</div>
+      <div class="col-9">{{order.address}}</div>
+    </div>
+    <div class="row note-row">
+      <div class="col-3" i18n="@@Note">Note</div>
+      <div class="col-9">{{order.note}}</div>
+    </div>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="total-block">
+            <div class="row total-row">
+              <div class="col-9">
+                <span i18n="@@Total">Total</span>
+                <span>:</span>
+              </div>
+              <div class="col-3">${{order.total | number : '1.2-2'}}</div>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="product-block">
+        <div *ngFor="let item of order.items" class="text-sm row">
+          <div class="col-7 product-col">{{item.productName}}</div>
+          <div class="col-2 quantity-col">x{{item.quantity}}</div>
+          <div class="col-3 price-col">${{item.price | number : '1.2-2'}}</div>
+        </div>
+      </div>
+      <div class="detail-block">
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@ProductTotal">Product Total</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">${{order.productTotal | number : '1.2-2'}}</div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@DeliveryFee">Delivery Fee</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">${{order.deliveryDiscount | number : '1.2-2'}}</div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@Tax">Tax</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">${{order.tax | number : '1.2-2'}}</div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@Subtotal">Sub Total</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">${{order.subtotal2 | number : '1.2-2'}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@Tips">Tips</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">${{order.tips | number : '1.2-2'}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <span i18n="@@DeliveryDiscount">Delivery Discount</span>
+            <span>:</span>
+          </div>
+          <div class="col-3">-${{order.deliveryDiscount | number : '1.2-2'}}</div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+  </div>
+</div> -->

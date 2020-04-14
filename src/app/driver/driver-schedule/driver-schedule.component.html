@@ -1,0 +1,24 @@
+<!-- <div class="row datetime-row">
+  <div class="date-input-block">
+    <form [formGroup]="dateForm">
+      <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date" [formControl]="date"
+        (click)="picker.open()" (dateChange)="onDateChange('change', $event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </form>
+  </div>
+
+  <div class="time-btn-group">
+    <mat-button-toggle-group #group="matButtonToggleGroup" [value]="pickup" (change)="onSelectTime($event)">
+      <mat-button-toggle value="p1" aria-label="{{pickup}}" *ngFor="let pickup of pickups">
+        <div class="title">{{pickup}}</div>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</div>
+
+<mat-tab-group mat-align-tabs="left" [selectedIndex]="1">
+  <mat-tab *ngFor="let m of malls" label="{{m.name}}">
+    <app-driver-schedule-settings [mall]="m" [delivered]="delivered"></app-driver-schedule-settings>
+  </mat-tab>
+</mat-tab-group> -->

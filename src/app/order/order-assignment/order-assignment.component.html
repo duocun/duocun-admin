@@ -1,0 +1,39 @@
+<div class="config-block">
+  <form [formGroup]="assignmentForm" *ngIf="assignmentForm && coefficients ">
+    <div formArrayName="coefficients">
+      <div *ngFor="let r of regions; let i=index" class="coefficient-row">
+        <div class="text-sm">
+          <span i18n="@@Coefficient">Coefficient</span>:&nbsp;{{r.name}}
+        </div>
+        <input [formControlName]="i" type="text" />
+      </div>
+    </div>
+  </form>
+  <div class="btn btn-primary" (click)="reassign()">Re-Assign</div>
+</div>
+
+<div *ngIf="groupedAssignments && groupedAssignments.length>0">
+  <div *ngFor="let m of groupedAssignments">
+    <div>{{m.mallName}}</div>
+    <div *ngFor="let ass of m.assignments" class="order">
+      <div class="text-sm">
+        <span i18n="@@OrderCode">Code</span>:&nbsp;{{ass.code}}
+      </div>
+      <div class="text-sm">
+        <span i18n="@@Merchant">Merchant</span>: {{ass.merchantName}}
+      </div>
+      <div class="text-sm">
+        <span i18n="@@Driver">Driver</span>: {{ass.driverName}}
+      </div>
+      <div class="text-sm">
+        <span i18n="Client">Client</span>:
+        {{ass.clientName}}
+        {{ass.clientPhoneNumber}}
+        ${{ass.total | number : '1.2-2' }}
+      </div>
+      <div class="text-sm">{{ass.address}}</div>
+    </div>
+  </div>
+</div>
+
+

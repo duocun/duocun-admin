@@ -1,0 +1,70 @@
+$cellphone: "(max-width:480px)";
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+$map-height: 540px;
+$map-width: 578px;
+
+mat-card{
+  margin: 10px;
+}
+
+mat-form-field{
+  padding: 10px;
+}
+
+.driver-schedule-table{
+  height: $map-height;
+  width: calc(100% - #{$map-width});
+  overflow: auto;
+  float: left;
+
+  table{
+    width: 100%;
+
+    .highlighted{
+      background-color: #eee
+    }
+  }
+}
+
+.btn{
+  margin-right: 5px;
+}
+
+.op{
+  float: left;
+}
+
+
+.map-container{
+  height: $map-height;
+  width: $map-width;
+  float: left;
+  app-map{
+    height: $map-height;
+  }
+}
+
+@media #{$mobile}{
+  $map-height: 240px;
+
+  .map-container{
+    height: $map-height;
+    margin-left: 0px;
+    width: 100%;
+  
+    app-map{
+      height: $map-height;
+    }
+  }
+
+  .map-block{
+    height: $map-height;
+  }
+
+  mat-form-field{
+    width: 50%;
+  }
+}

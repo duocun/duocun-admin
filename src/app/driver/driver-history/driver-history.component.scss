@@ -1,0 +1,21 @@
+
+.payment{
+  margin: 0px;
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #666;
+
+  .col-6, .col-12{
+    padding: 0px 10px;
+  }
+  .col-6{
+    padding-top:10px;
+  }
+  .label{
+    width: 80px;
+    float: left;
+  }
+  .text-val{
+    float: left;
+  }
+}

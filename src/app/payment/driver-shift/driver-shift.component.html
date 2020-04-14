@@ -1,0 +1,17 @@
+<div class="payable-list">
+  <span>司机</span>
+  <span>餐费</span>
+  <span>应收</span>
+  <span>付款</span>
+    <div *ngFor="let d of drivers">
+      <div class="row driver-block">
+        <div class="col-12">
+          {{d.username}}
+        </div>
+        <!-- <div class="col-12">
+          {{d.status}}
+        </div> -->
+      </div>
+    </div>
+</div>
+

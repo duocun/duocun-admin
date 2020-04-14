@@ -1,0 +1,51 @@
+
+
+.page-content{
+  padding: 0px 10px;
+  
+  .date-input-block{
+    width: 100%;
+    height: 60px;
+    display: block;
+    margin: 0px;
+    padding: 10px 10px 0px 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    form{
+      width: 100%;
+      display: flex;
+      
+      .date-input{
+        width: calc(100% - 40px);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .mat-tab-group{
+    width: 100%;
+    height: calc(100% - 120px);
+    position: absolute;
+    top: 60px;
+    left: 0px;
+  }
+}
+
+app-order-pack{
+  position: relative;
+  height: 100%;
+  display: block;
+}
+
+$cellphone: "(max-width:480px)";
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+@media #{$mobile}{
+  .date-input-block{
+    position: fixed;
+  }
+}

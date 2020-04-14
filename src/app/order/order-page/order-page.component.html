@@ -1,0 +1,30 @@
+<div class="page-content">
+  <div class="row date-input-block">
+    <form [formGroup]="dateForm">
+      <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date" [formControl]="date"
+        (click)="picker.open()" (dateChange)="onDateChange('change', $event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </form>
+  </div>
+  <mat-tab-group mat-align-tabs="left">
+    <mat-tab i18n-label label="Summary">
+      <app-order-summary [orders]="orders"></app-order-summary>
+    </mat-tab>
+    <mat-tab i18n-label label="Detail">
+      <app-order-pack [orders]="orders" [delivered]="delivered"></app-order-pack>
+    </mat-tab>
+    <mat-tab label="分配订单" *ngIf="delivered">
+      <app-auto-assign [orders]="orders" [delivered]="delivered"></app-auto-assign>
+    </mat-tab>
+    <mat-tab i18n-label label="Modify">
+      <app-order-detail [orders]="orders" [delivered]="delivered"></app-order-detail>
+    </mat-tab>
+    <mat-tab i18n-label label="Settlement">
+      <div></div>
+    </mat-tab>
+    <mat-tab i18n-label label="Phases">
+      <app-order-phase></app-order-phase>
+    </mat-tab>
+  </mat-tab-group>
+</div>

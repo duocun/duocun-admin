@@ -1,0 +1,25 @@
+<div class="page-content" *ngIf="loggedIn">
+<mat-tab-group mat-align-tabs="left">
+  <mat-tab label="Order">
+    <app-order-page></app-order-page>
+  </mat-tab>
+  <mat-tab label="User">
+    <!-- <app-product-grid [restaurant]="restaurant" [groupedProducts]="groupedProducts" [categories]="categories"></app-product-grid> -->
+  </mat-tab>
+  <mat-tab label="Mall">
+    <app-mall-page></app-mall-page>
+  </mat-tab>
+  <mat-tab label="Restaurant">
+    <div></div>
+    <!-- <app-restaurant-about [restaurant]="restaurant"></app-restaurant-about> -->
+  </mat-tab>
+  <mat-tab label="Product">
+      <!-- <app-product-page></app-product-page> -->
+    <!-- <app-restaurant-about [restaurant]="restaurant"></app-restaurant-about> -->
+  </mat-tab>
+  <mat-tab label="Picture">
+    <app-picture-page></app-picture-page>
+  </mat-tab>
+
+</mat-tab-group>
+</div>

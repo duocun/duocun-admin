@@ -1,0 +1,20 @@
+<!-- <div class="row">
+  <div class="col-md-6 map-block" *ngIf="activeRegions && places">
+    <app-map [mapId]="mapId" [center]="center" [zoom]="11" [regions]="activeRegions" [places]="places" (afterClick)="onClickMap($event)"></app-map>
+  </div>
+  <div class="col-md-6 list-block">
+    <div class="area-block" *ngFor="let r of areas" [class.active]="r === selected">
+      <form [formGroup]="forms[r._id]" class="region-form">
+        <div class="row" (click)="onSelect(r)">
+          <mat-form-field class="name-field">
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="regions-field">
+            <input matInput placeholder="Regions" formControlName="regions">
+          </mat-form-field>
+          <button mat-stroked-button color="primary" (click)="onSave(r)">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

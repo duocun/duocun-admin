@@ -1,0 +1,61 @@
+<div *ngIf="malls && malls.length > 0">
+<div *ngFor="let m of malls; let i of index">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="panel-head">
+          <div>{{m.data.name}}</div>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="m.form" class="mall-form">
+      <div formArrayName="items" *ngFor="let item of m.form.get('items').controls;let i= index;">
+        <div class="day-field">周{{i === 0 ? '日' : i}}</div>
+        <mat-form-field class="region-field">
+          <input matInput placeholder="Regions" [formControlName]="i">
+        </mat-form-field>
+      </div>
+      <button mat-stroked-button color="primary" (click)="onSave(m)">Save</button>
+    </form>
+
+  </mat-expansion-panel>
+</div>
+</div>
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mall-schedule-table-container mat-elevation-z8" *ngIf="dataSource">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="weekday">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>星期</th>
+        <td mat-cell *matCellDef="let row"> {{row.weekday}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mall">
+        <th mat-header-cell *matHeaderCellDef i18n="@@Mall"> Mall </th>
+        <td mat-cell *matCellDef="let row"> {{row.mall}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="regions">
+        <th mat-header-cell *matHeaderCellDef i18n="@@Region"> Regions </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-select [formControlName]="i" multiple>
+            <mat-option *ngFor="let region of regionList" [value]="region._id">{{region.name}}</mat-option>
+          </mat-select>
+          <mat-form-field class="region-field">
+            <input matInput placeholder="Regions" [formControlName]="i" >
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;let i=index;"></tr>
+    </table>
+  </div>
+
+  <button mat-stroked-button color="primary">Create Overtime</button>
+</form> -->

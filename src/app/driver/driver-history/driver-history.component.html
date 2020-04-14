@@ -1,0 +1,32 @@
+<!-- <div class="row date-input-block">
+  <form [formGroup]="dateForm">
+    <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date"
+      [formControl]="date"
+      (click)="picker.open()"
+      (dateChange)="onDateChange('change', $event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </form>
+</div> -->
+
+
+<div class="payable-list">
+  <div *ngFor="let d of byDeliveryDate">
+    <div class="row payment">
+      <div class="col-12">
+        <span class="label" i18n="@@DeliverDate">Deliver Date</span>
+        <span>{{d.delivered | date: 'MMMd E' }}</span>
+      </div>
+      <div *ngFor="let driver of d.drivers">
+        <div class="col-12">
+          <span class="label" i18n="@@Driver">Driver</span>
+          <span>{{driver.name}}</span>
+        </div>
+        <div class="col-12">
+          <span class="label" i18n="@@Order">Order</span>
+          <span>${{driver.nOrders | number : '1.2-2'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

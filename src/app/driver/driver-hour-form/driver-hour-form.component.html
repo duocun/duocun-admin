@@ -1,0 +1,22 @@
+<form class="driver-hour-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label><span i18n="@@Driver">Driver</span></mat-label>
+    <mat-select [(value)]="selectedDriverId" (selectionChange)="onDriverSelectionChanged($event)">
+      <mat-option *ngFor="let r of drivers" [value]="r.driverId">
+        {{r.driverName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="hour-field">
+    <input matInput placeholder="Hours" value="" [formControl]="hours" >
+  </mat-form-field>
+
+  <mat-form-field class="hour-field">
+    <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date"
+      [formControl]="date" (click)="picker.open()" (dateChange)="onDateChange('change', $event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-stroked-button color="primary">Create Overtime</button>
+</form>

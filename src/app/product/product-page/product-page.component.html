@@ -1,0 +1,33 @@
+
+<mat-form-field>
+  <mat-label><span i18n="@@Merchant">Merchant</span></mat-label>
+  <mat-select *ngIf="merchants" [(value)]="selectedMerchantId" (selectionChange)="onMerchantChanged($event)">
+    <mat-option *ngFor="let m of merchants" [value]="m._id">
+      {{m.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-stroked-button color="primary" (click)="newProduct()">New Product</button>
+
+<div class="row">
+  <div class="col-8">
+      <app-product-form [product]="product" [merchantId]="selectedMerchantId"
+      (afterSave)="onAfterSave($event)" 
+      (afterUpload)="onAfterUpload($event)">
+    </app-product-form>
+  </div>
+
+  <div class="col-4">
+    <div *ngIf="products && products.length>0">
+      <div *ngFor="let p of products">
+          <div class="row product-row" (click)="onSelectProduct(p)">
+            <div class="col-8">{{p.name}}</div>
+            <div class="col-4">
+              <img src="{{mediaUrl + p.pictures[0].url}}" style="width:80px; height:60px;">
+            </div>
+          </div>
+      </div>
+    </div>      
+  </div>
+</div>

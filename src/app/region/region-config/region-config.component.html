@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-7 date-input-block">
+    <form [formGroup]="dateForm">
+      <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date"
+        [formControl]="date" (click)="picker.open()" (dateChange)="onDateChange('change', $event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </form>
+  </div>
+
+  <div class="col-md-6 map-block" *ngIf="activeRegions && places">
+    <app-map [mapId]="mapId" [center]="center" [zoom]="11" [regions]="activeRegions" [places]="places"
+      (afterClick)="onClickMap($event)"></app-map>
+  </div>
+  <div class="col-md-6 list-block">
+    <div class="region-block" *ngFor="let r of regions" [class.active]="r === selected">
+      <form [formGroup]="forms[r._id]" class="region-form">
+        <div class="row">lat: {{r.lat}}&nbsp; lng: {{r.lng}}</div>
+        <div class="row">
+          <div class="col-7" (click)="onSelect(r)">
+            <div class="row">
+              <div class="col-7">
+                <div class="col-12 label-sm">
+                  <span i18n="@@Region">Region</span>:
+                </div>
+                <div class="col-12">
+                  <input class="name-input" name="name" formControlName="name" />
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="col-12 label-sm">
+                  <span i18n="@@OrderCode">Code</span>:
+                </div>
+                <div class="col-12">
+                  <input class="code-input" name="code" formControlName="code" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5 button-col">
+            <div *ngIf="r.status==='new'" class="btn btn-primary" i18n="@@Save" (click)="onSave(r)">Save</div>
+            <div *ngIf="r.status==='inactive'" class="btn btn-primary" i18n="@@Activate" (click)="onActivate(r)">
+              Activate</div>
+            <div *ngIf="r.status==='active'" class="btn btn-danger" i18n="@@Deactivate" (click)="onDeactivate(r)">
+              Deactivate</div>
+            <div *ngIf="r.status!=='new'" class="btn btn-primary" i18n="@@Update" (click)="onUpdate(r)">Update</div>
+            <div *ngIf="r.status!=='new'" class="btn btn-primary" i18n="@@Remove" (click)="onRemove(r)">Remove</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

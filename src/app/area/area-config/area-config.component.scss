@@ -1,0 +1,37 @@
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+
+.map-block{
+  height: 600px;
+
+  app-map{
+    height: 600px;
+  }
+}
+
+mat-form-field {
+  padding: 10px;
+}
+
+table{
+  width: 100%;
+  .highlighted{
+    background-color: #eee
+  }
+}
+
+@media #{$mobile}{
+  $map-height: 450px; // calc(100% - 60px);// 200px;
+  $list-height: calc(100% - 200px - 90px);
+
+  .map-block{
+    height: $map-height;
+    margin-left: 10px;
+  
+    app-map{
+      height: $map-height;
+    }
+  }
+}

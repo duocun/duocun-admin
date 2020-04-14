@@ -1,0 +1,36 @@
+
+
+<form class="region-form" [formGroup]="form">
+  <!-- <mat-form-field class="client-field">
+    <mat-label><span>Lat</span></mat-label>
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="clientCtrl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let r of filteredOptions | async" [value]="r">
+        {{r.accountName}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field> -->
+
+  <!-- <mat-form-field>
+    <mat-label><span i18n="@@Driver">Driver</span></mat-label>
+    <mat-select [(value)]="selectedDriverId" (selectionChange)="onDriverSelectionChanged($event)">
+      <mat-option *ngFor="let r of drivers" [value]="r.driverId">
+        {{r.driverName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field class="lat-field">
+    <input matInput placeholder="Lat" value="" [formControl]="lat" >
+  </mat-form-field>
+  <mat-form-field class="lng-field">
+    <input matInput placeholder="Lng" value="" [formControl]="lng" >
+  </mat-form-field>
+  <mat-form-field class="step-field">
+    <input matInput placeholder="Step" value="" [formControl]="step" >
+  </mat-form-field>
+
+  <div class="row">
+    <div class="btn btn-primary" (click)="genRegions()">生成区域</div>
+  </div>
+</form>

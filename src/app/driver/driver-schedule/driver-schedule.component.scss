@@ -1,0 +1,40 @@
+
+.datetime-row{
+  margin-right: 5px;
+  margin-left: 5px;
+
+  .date-input-block{
+    width: 260px;
+    padding-top: 10px;
+
+    form{
+      width: 100%;
+      display: flex;
+      
+      .date-input{
+        width: calc(100% - 40px);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .time-btn-group{
+    width: 140px;
+    padding-top: 5px;
+  }
+}
+
+$toggle-btn-height: 40px;
+$blue: #4285F3;
+
+mat-button-toggle-group{
+  width: 100%;
+  mat-button-toggle{
+    width: 50%;
+  }
+
+  .mat-button-toggle-checked {
+    background-color: $blue;// mat-color($accent);
+    color: white; // mat-color($accent, default-contrast);
+  }
+}

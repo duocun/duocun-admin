@@ -1,0 +1,26 @@
+mat-form-field{
+  padding-right: 20px;
+}
+
+.payment-table-container{
+  height: 600px;
+  overflow: auto;
+}
+
+table{
+  width: 100%;
+
+  .highlighted{
+    background-color: #eee
+  }
+}
+
+.merchant-field{
+  width: 100%;
+}
+
+.settings-form{
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}

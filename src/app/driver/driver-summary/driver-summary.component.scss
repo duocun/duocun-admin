@@ -1,0 +1,29 @@
+
+mat-form-field{
+  padding-right: 20px;
+}
+
+.driver-table-container{
+  height: 600px;
+  overflow: auto;
+
+  table{
+    width: 100%;
+
+    .highlighted{
+      background-color: #eee
+    }
+  }
+}
+
+table{
+  width: 100%;
+}
+
+.btn{
+  margin-right: 5px;
+}
+
+mat-form-field{
+  width: 300px;
+}

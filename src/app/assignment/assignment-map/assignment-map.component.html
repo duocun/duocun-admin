@@ -1,0 +1,14 @@
+<div class="row date-input-block">
+  <form [formGroup]="dateForm">
+    <input class="date-input" matInput [matDatepicker]="picker" i18n-placeholder placeholder="Choose a date"
+      [formControl]="date"
+      (click)="picker.open()"
+      (dateChange)="onDateChange('change', $event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </form>
+</div>
+<!--[ranges]="ranges" [regions]="regions"-->
+<div class="map-block">
+  <app-map [mapId]="mapId" [center]="location" [zoom]="12" [places]="places" ></app-map>
+</div>

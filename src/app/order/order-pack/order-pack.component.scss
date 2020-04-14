@@ -1,0 +1,116 @@
+.order{
+  border-bottom: solid 1px #eee;
+  padding: 10px;
+
+  .row{
+    margin: 0px;
+  }
+
+  .note-row, .order-id-row, .client-row{
+    font-size: 12px;
+    .col-3{
+      padding: 0px;
+    }
+    .col-9{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  .product-block{
+    padding-top: 10px;
+    .product-col{
+      padding-left: 0px;
+    }
+  }
+}
+
+.no-orders{
+  padding-top: 200px;
+  text-align: center;
+}
+
+.detail-block, .total-block{
+  font-size: 14px;
+  .col-9{
+    padding-left: 0px;
+  }
+}
+
+.total-block{
+  width: 100%;
+}
+
+
+$cellphone: "(max-width:480px)";
+$mobile: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1199px)";
+$desktop: "(min-width: 1200px)";
+
+.order-table{
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  width: 65%;
+  float: left;
+  // padding: 15px;
+  min-height: 530px;
+  max-height: 530px;
+  // height: 530px;
+  overflow: auto !important;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  
+  table.mat-table{
+    padding-top: 5px;
+    width: 100%;
+    .highlighted{
+      background-color: #eee
+    }
+    td.mat-cell{
+      padding-left: 15px;
+    }
+  }
+}
+
+.left-side{
+  width: 35%;
+  display: block;
+  height: 100%;
+  float: left;
+
+  .order-form{
+    width: 100%;
+    float: left;
+    padding: 0px 10px;
+  
+    .order-detail{
+      padding: 15px 0px;
+      font-weight: 300;
+      span{
+        font-weight: 500;
+      }
+    }
+  }
+
+  .search-box{
+    display: block;
+    padding: 10px;
+  }
+}
+
+
+@media #{$mobile}{
+  .left-side{
+    width: 75%;
+    .order-form{
+      width: 100%;
+    }
+  }
+  .order-table{
+    width: 25%;
+    // .merchant-name-col, .client-name-col, .client-phone-col, .note-col, .operation-col{
+    //   display: none;
+    // }
+  }
+
+}
