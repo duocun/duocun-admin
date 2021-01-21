@@ -51,7 +51,7 @@
     "redux": "^4.0.1",
     "rxjs": "^6.5.2",
     "serve-favicon": "^2.0.1",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.4.0",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
